@@ -8,6 +8,7 @@
                 <a href="{{ url_for('code') }}" class="btn btn-{{ "primary" if card_type == "code" else "default" }}">Code</a>
 				<a href="{{ url_for('alglin') }}" class="btn btn-{{ "primary" if card_type == "alglin" else "default" }}">Algèbre Linéaire</a>
 				<a href="{{ url_for('mathdi') }}" class="btn btn-{{ "primary" if card_type == "mathdi" else "default" }}">Maths Discrète</a>
+			<!--<a href="{{ url_for('categorie') }}" class="btn btn-{{ "primary" if card_type == "categorie" else "default" }}">Catégorie</a> -->
             </div>
         </div>
     </div>
@@ -15,7 +16,7 @@
     <hr/>
 
     <div class="row memorizePanel">
-        <!--
+        
         <div class="col-xs-2">
             <div class="alignContainer">
                 <div class="alignMiddle text-right">
@@ -25,7 +26,7 @@
                 </div>
             </div>
         </div>
-        -->
+        
         <div class="col-xs-8 col-xs-offset-2">
             <div class="panel panel-default cardFront">
                 <div class="panel-body">
@@ -56,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <!--
+        
         <div class="col-xs-2">
             <div class="alignContainer">
                 <div class="alignMiddle text-left">
@@ -66,7 +67,7 @@
                 </div>
             </div>
         </div>
-        -->
+        
     </div>
 
     <div class="row">

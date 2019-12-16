@@ -49,10 +49,10 @@ def close_db(error):
 
 # Uncomment and use this to initialize database, then comment it
 #   You can rerun it to pave the database and start over
-# @app.route('/initdb')
-# def initdb():
-#     init_db()
-#     return 'Initialized the database.'
+@app.route('/initdb')
+def initdb():
+    init_db()
+    return 'Base de donnée initialisée.'
 
 
 @app.route('/')
@@ -63,7 +63,7 @@ def index():
         return redirect(url_for('login'))
 
 
-@app.route('/cards')
+@app.route('/cartes')
 def cards():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
@@ -78,7 +78,7 @@ def cards():
     return render_template('cards.html', cards=cards, filter_name="all")
 
 
-@app.route('/filter_cards/<filter_name>')
+@app.route('/filtrer/<filter_name>')
 def filter_cards(filter_name):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
@@ -89,6 +89,7 @@ def filter_cards(filter_name):
         "code":     "where type = 2",
         "alglin":     "where type = 3",
         "mathdi":     "where type = 4",
+#        "categorie":     "where type = n+1",
         "known":    "where known = 1",
         "unknown":  "where known = 0",
     }
@@ -105,7 +106,7 @@ def filter_cards(filter_name):
     return render_template('cards.html', cards=cards, filter_name=filter_name)
 
 
-@app.route('/add', methods=['POST'])
+@app.route('/ajouter', methods=['POST'])
 def add_card():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
@@ -120,7 +121,7 @@ def add_card():
     return redirect(url_for('cards'))
 
 
-@app.route('/edit/<card_id>')
+@app.route('/modifier/<card_id>')
 def edit(card_id):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
@@ -135,7 +136,7 @@ def edit(card_id):
     return render_template('edit.html', card=card)
 
 
-@app.route('/edit_card', methods=['POST'])
+@app.route('/modifier_carte', methods=['POST'])
 def edit_card():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
@@ -163,7 +164,7 @@ def edit_card():
     return redirect(url_for('cards'))
 
 
-@app.route('/delete/<card_id>')
+@app.route('/supprimer/<card_id>')
 def delete(card_id):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
@@ -189,12 +190,38 @@ def code(card_id=None):
         return redirect(url_for('login'))
     return memorize("code", card_id)
 
+@app.route('/alglin')
+@app.route('/alglin/<card_id>')
+def alglin(card_id=None):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    return memorize("alglin", card_id)
+    
+@app.route('/mathdi')
+@app.route('/mathdi/<card_id>')
+def mathdi(card_id=None):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    return memorize("mathdi", card_id)
+    
+#@app.route('/categorie')
+#@app.route('/categorie/<card_id>')
+#def categorie(card_id=None):
+#    if not session.get('logged_in'):
+#        return redirect(url_for('login'))
+#    return memorize("categorie", card_id)
 
 def memorize(card_type, card_id):
     if card_type == "general":
         type = 1
     elif card_type == "code":
         type = 2
+    elif card_type == "alglin":
+        type = 3
+    elif card_type == "mathdi":
+        type = 4
+#elif card_type == "categorie":
+#    type = n+1
     else:
         return redirect(url_for('cards'))
 
@@ -246,7 +273,7 @@ def get_card_by_id(card_id):
     return cur.fetchone()
 
 
-@app.route('/mark_known/<card_id>/<card_type>')
+@app.route('/marquer_appris/<card_id>/<card_type>')
 def mark_known(card_id, card_type):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
@@ -257,7 +284,7 @@ def mark_known(card_id, card_type):
     return redirect(url_for(card_type))
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/connexion', methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
@@ -272,7 +299,7 @@ def login():
     return render_template('login.html', error=error)
 
 
-@app.route('/logout')
+@app.route('/dexonnexion')
 def logout():
     session.pop('logged_in', None)
     flash("Vous vous êtes déconnecté!")
