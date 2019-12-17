@@ -1,21 +1,22 @@
 # Computer Science Flash Cards
 
-This is a little website I've put together to allow me to easily make flash cards and quiz myself for memorization of:
+This is a little website I've put together to allow me to easily make flash cards and quiz myself for memorization
 
-- general cs knowledge
-    - vocabulary
-    - definitions of processes
-    - powers of 2
-    - design patterns
-- code
-    - data structures
-    - algorithms
-    - solving problems
-    - bitwise operations
+This is a forked version of [jwasham](https://github.com/jwasham/computer-science-flash-cards)
+
+Includes these categories :
+- C/C++
+- Web
+- Linear Algebra
+- Discrete mathematics
+- Economics
+- Computer system
+
+You can easily translate, remove and add categories by modifying ```flash_cards.py``` and the .html files from ```/templates```. No need to modify anything else.
 
 Will be able to use it on:
-    - desktop
-    - mobile (phone and tablet)
+- desktop
+- mobile (phone and tablet)
 
 It uses:
 - Python 3
@@ -23,40 +24,6 @@ It uses:
 - SQLite
 
 ---
-
-## About the Site
-
-Here's a brief rundown: https://startupnextdoor.com/flash-cards-site-complete/
-
-## Screenshots
-
-UI for listing cards. From here you can add and edit cards.
-
-![Card UI](screenshots/cards_ui-1467754141259.png)
-
----
-
-The front of a General flash card.
-
-![Memorizing general knowledge](screenshots/memorize_ui-1467754306971.png)
-
----
-
-The reverse (answer side) of a Code flash card.
-
-![Code view](screenshots/memorize_code-1467754962142.png)
-
-## Important Note
-
-The set included in this project (**cards-jwasham.db**) is not my full set, and is way too big already.
-
-Thanks for asking for my list of 1,792 cards. But **it’s too much.** I even printed them out. It’s 50 pages, front and back, in tiny text. It would take about 8 hours to just read them all.
-
-My set includes a lot of obscure info from books I’ve read, Python trivia, machine learning knowledge, assembly language, etc.
-
-I've added it to the project if you want it (**cards-jwasham-extreme.db**). You've been warned.
-
-Please make your own set, and while you’re making them, only make cards for what you need to know. Otherwise, it gets out of hand. 
 
 ## How to convert to Anki or CSV
 
@@ -169,8 +136,6 @@ heroku open --app your-app-name
 ## Alternative for Node fans
 
 [@ashwanikumar04](https://github.com/ashwanikumar04) put together an alternative flash cards site running Node: https://github.com/ashwanikumar04/flash-cards
-
-Check out the demo!
 
 *Happy learning!*
 
