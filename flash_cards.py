@@ -58,7 +58,7 @@ def initdb():
 @app.route('/')
 def index():
     if session.get('logged_in'):
-        return redirect(url_for('general'))
+        return redirect(url_for('cpp'))
     else:
         return redirect(url_for('login'))
 
@@ -85,14 +85,17 @@ def filter_cards(filter_name):
 
     filters = {
         "all":      "where 1 = 1",
-        "general":  "where type = 1",
-        "code":     "where type = 2",
+        "cpp":  "where type = 1",
+        "web":     "where type = 2",
         "alglin":     "where type = 3",
         "mathdi":     "where type = 4",
-#        "categorie":     "where type = n+1",
+        "eco":     "where type = 5",
+        "systeme":     "where type = 6",
         "known":    "where known = 1",
         "unknown":  "where known = 0",
     }
+    
+#CAT HERE
 
     query = filters.get(filter_name)
 
@@ -175,20 +178,20 @@ def delete(card_id):
     return redirect(url_for('cards'))
 
 
-@app.route('/general')
-@app.route('/general/<card_id>')
-def general(card_id=None):
+@app.route('/cpp')
+@app.route('/cpp/<card_id>')
+def cpp(card_id=None):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    return memorize("general", card_id)
+    return memorize("cpp", card_id)
 
 
-@app.route('/code')
-@app.route('/code/<card_id>')
-def code(card_id=None):
+@app.route('/web')
+@app.route('/web/<card_id>')
+def web(card_id=None):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
-    return memorize("code", card_id)
+    return memorize("web", card_id)
 
 @app.route('/alglin')
 @app.route('/alglin/<card_id>')
@@ -196,32 +199,43 @@ def alglin(card_id=None):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     return memorize("alglin", card_id)
-    
+
 @app.route('/mathdi')
 @app.route('/mathdi/<card_id>')
 def mathdi(card_id=None):
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     return memorize("mathdi", card_id)
-    
-#@app.route('/categorie')
-#@app.route('/categorie/<card_id>')
-#def categorie(card_id=None):
-#    if not session.get('logged_in'):
-#        return redirect(url_for('login'))
-#    return memorize("categorie", card_id)
+
+@app.route('/eco')
+@app.route('/eco/<card_id>')
+def eco(card_id=None):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    return memorize("eco", card_id)
+
+@app.route('/systeme')
+@app.route('/systeme/<card_id>')
+def systeme(card_id=None):
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    return memorize("systeme", card_id)
+
+#CAT HERE
 
 def memorize(card_type, card_id):
-    if card_type == "general":
+    if card_type == "cpp":
         type = 1
-    elif card_type == "code":
+    elif card_type == "web":
         type = 2
     elif card_type == "alglin":
         type = 3
     elif card_type == "mathdi":
         type = 4
-#elif card_type == "categorie":
-#    type = n+1
+    elif card_type == "eco":
+        type = 5
+    elif card_type == "systeme":
+        type = 6 #Add cat here
     else:
         return redirect(url_for('cards'))
 

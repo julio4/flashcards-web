@@ -4,11 +4,13 @@
     <div class="row">
         <div class="col-xs-12 text-center">
             <div class="btn-group btn-group-lg" role="group" aria-label="card type">
-                <a href="{{ url_for('general') }}" class="btn btn-{{ "primary" if card_type == "general" else "default" }}">Général</a>
-                <a href="{{ url_for('code') }}" class="btn btn-{{ "primary" if card_type == "code" else "default" }}">Code</a>
+                <a href="{{ url_for('cpp') }}" class="btn btn-{{ "primary" if card_type == "cpp" else "default" }}">C++</a>
+                <a href="{{ url_for('web') }}" class="btn btn-{{ "primary" if card_type == "web" else "default" }}">Web</a>
 				<a href="{{ url_for('alglin') }}" class="btn btn-{{ "primary" if card_type == "alglin" else "default" }}">Algèbre Linéaire</a>
 				<a href="{{ url_for('mathdi') }}" class="btn btn-{{ "primary" if card_type == "mathdi" else "default" }}">Maths Discrète</a>
-			<!--<a href="{{ url_for('categorie') }}" class="btn btn-{{ "primary" if card_type == "categorie" else "default" }}">Catégorie</a> -->
+				<a href="{{ url_for('eco') }}" class="btn btn-{{ "primary" if card_type == "eco" else "default" }}">Economie</a>
+				<a href="{{ url_for('systeme') }}" class="btn btn-{{ "primary" if card_type == "systeme" else "default" }}">Système</a>
+
             </div>
         </div>
     </div>
@@ -16,16 +18,6 @@
     <hr/>
 
     <div class="row memorizePanel">
-        
-        <div class="col-xs-2">
-            <div class="alignContainer">
-                <div class="alignMiddle text-right">
-                    <br/>
-                    <br/>
-                    <a href="wewetw"><i class="fa fa-chevron-left fa-5x"></i></a>
-                </div>
-            </div>
-        </div>
         
         <div class="col-xs-8 col-xs-offset-2">
             <div class="panel panel-default cardFront">
@@ -54,16 +46,6 @@
                             {% endif %}
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-xs-2">
-            <div class="alignContainer">
-                <div class="alignMiddle text-left">
-                    <br/>
-                    <br/>
-                    <a href="ergergerge"><i class="fa fa-chevron-right fa-5x"></i></a>
                 </div>
             </div>
         </div>

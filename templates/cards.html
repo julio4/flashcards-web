@@ -5,11 +5,11 @@
         <h2>Ajouter une carte.</h2>
         <form action="{{ url_for('add_card') }}" method="post" class="cardForm">
             <div class="form-group">
-                <label for="general" class="toggleButton btn btn-default btn-lg">Général &nbsp;
-                    <input type="radio" name="type" value="1" id="general"/>
+                <label for="cpp" class="toggleButton btn btn-default btn-lg">C/C++ &nbsp;
+                    <input type="radio" name="type" value="1" id="cpp"/>
                 </label>
-                <label for="code" class="toggleButton btn btn-default btn-lg">Code &nbsp;
-                    <input type="radio" name="type" value="2" id="code"/>
+                <label for="web" class="toggleButton btn btn-default btn-lg">Web &nbsp;
+                    <input type="radio" name="type" value="2" id="web"/>
                 </label>
 				<label for="alglin" class="toggleButton btn btn-default btn-lg">Algèbre Linéaire &nbsp;
                     <input type="radio" name="type" value="3" id="alglin"/>
@@ -17,9 +17,13 @@
 				<label for="mathdi" class="toggleButton btn btn-default btn-lg">Maths discrète &nbsp;
                     <input type="radio" name="type" value="4" id="mathdi"/>
                 </label>
-			<!--<label for="categorie" class="toggleButton btn btn-default btn-lg">Catégorie &nbsp;
-                    <input type="radio" name="type" value="n+1" id="categorie"/>
-                </label>-->
+				<label for="eco" class="toggleButton btn btn-default btn-lg">Economie &nbsp;
+                    <input type="radio" name="type" value="5" id="eco"/>
+                </label>
+				<label for="systeme" class="toggleButton btn btn-default btn-lg">Système &nbsp;
+                    <input type="radio" name="type" value="6" id="systeme"/>
+                </label>
+
             </div>
             <div class="form-group fieldFront">
                 <label for="front">Sujet</label>
@@ -44,11 +48,13 @@
     </div>
     <div class="btn-group btn-group-md" role="group" aria-label="filters">
         <a href="{{ url_for('filter_cards', filter_name="all") }}" class="btn btn-{{ "primary" if filter_name == "all" else "default" }}">Tout</a>
-        <a href="{{ url_for('filter_cards', filter_name="general") }}" class="btn btn-{{ "primary" if filter_name == "general" else "default" }}">General</a>
-        <a href="{{ url_for('filter_cards', filter_name="code") }}" class="btn btn-{{ "primary" if filter_name == "code" else "default" }}">Code</a>
+        <a href="{{ url_for('filter_cards', filter_name="cpp") }}" class="btn btn-{{ "primary" if filter_name == "cpp" else "default" }}">C/C++</a>
+        <a href="{{ url_for('filter_cards', filter_name="web") }}" class="btn btn-{{ "primary" if filter_name == "web" else "default" }}">Web</a>
 		<a href="{{ url_for('filter_cards', filter_name="alglin") }}" class="btn btn-{{ "primary" if filter_name == "alglin" else "default" }}">Algèbre Linéaire</a>
 		<a href="{{ url_for('filter_cards', filter_name="mathdi") }}" class="btn btn-{{ "primary" if filter_name == "mathdi" else "default" }}">Math Discrète</a>
-	<!--<a href="{{ url_for('filter_cards', filter_name="categorie") }}" class="btn btn-{{ "primary" if filter_name == "categorie" else "default" }}">Catégorie</a>-->
+		<a href="{{ url_for('filter_cards', filter_name="eco") }}" class="btn btn-{{ "primary" if filter_name == "eco" else "default" }}">Economie</a>
+		<a href="{{ url_for('filter_cards', filter_name="systeme") }}" class="btn btn-{{ "primary" if filter_name == "systeme" else "default" }}">Système</a>
+
         <a href="{{ url_for('filter_cards', filter_name="known") }}" class="btn btn-{{ "primary" if filter_name == "known" else "default" }}">Appris</a>
         <a href="{{ url_for('filter_cards', filter_name="unknown") }}" class="btn btn-{{ "primary" if filter_name == "unknown" else "default" }}">En cours d'apprentissage</a>
     </div>

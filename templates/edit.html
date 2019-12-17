@@ -5,12 +5,12 @@
         <form action="{{ url_for('edit_card') }}" method="post" class="cardForm">
 
             <div class="form-group">
-                <label for="general" class="btn btn-default btn-lg">Général &nbsp;
+                <label for="cpp" class="btn btn-default btn-lg">C/C++ &nbsp;
                     <input type="radio" name="type" value="1"
-                           id="general" {{ "checked" if (card.type == 1) else "" }} />
+                           id="cpp" {{ "checked" if (card.type == 1) else "" }} />
                 </label>
-                <label for="code" class="btn btn-default btn-lg">Code &nbsp;
-                    <input type="radio" name="type" value="2" id="code" {{ "checked" if (card.type == 2) else "" }} />
+                <label for="web" class="btn btn-default btn-lg">Web &nbsp;
+                    <input type="radio" name="type" value="2" id="web" {{ "checked" if (card.type == 2) else "" }} />
                 </label>
 				<label for="alglin" class="btn btn-default btn-lg">Algèbre Linéaire &nbsp;
                     <input type="radio" name="type" value="3" id="alglin" {{ "checked" if (card.type == 3) else "" }} />
@@ -18,9 +18,13 @@
 				<label for="mathdi" class="btn btn-default btn-lg">Math Discrète &nbsp;
                     <input type="radio" name="type" value="4" id="mathdi" {{ "checked" if (card.type == 4) else "" }} />
                 </label>
-			<!--<label for="categorie" class="btn btn-default btn-lg">Catégorie &nbsp;
-                    <input type="radio" name="type" value="n+1" id="categorie" {{ "checked" if (card.type == n+1) else "" }} />
-                </label>-->
+				<label for="eco" class="btn btn-default btn-lg">Economie &nbsp;
+                    <input type="radio" name="type" value="5" id="eco" {{ "checked" if (card.type == 5) else "" }} />
+                </label>
+				<label for="systeme" class="btn btn-default btn-lg">Système &nbsp;
+                    <input type="radio" name="type" value="6" id="systeme" {{ "checked" if (card.type == 6) else "" }} />
+                </label>
+
             </div>
             <div class="form-group">
                 <label for="front">Sujet</label>
@@ -31,7 +35,7 @@
                 <textarea name="back"
                           class="form-control"
                           id="back"
-                          placeholder="back of card"
+                          placeholder="réponse"
                           rows="12">{{ card.back|e }}</textarea>
             </div>
             <div class="row">
