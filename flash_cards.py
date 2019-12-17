@@ -49,10 +49,10 @@ def close_db(error):
 
 # Uncomment and use this to initialize database, then comment it
 #   You can rerun it to pave the database and start over
-@app.route('/initdb')
-def initdb():
-    init_db()
-    return 'Base de donnée initialisée.'
+#@app.route('/initdb')
+#def initdb():
+#    init_db()
+#    return 'Base de donnée initialisée.'
 
 
 @app.route('/')
